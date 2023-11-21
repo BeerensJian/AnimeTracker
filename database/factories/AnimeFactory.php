@@ -25,7 +25,7 @@ class AnimeFactory extends Factory
             'title' => fake()->title(),
             'description' => fake()->text(),
             'rating' => fake()->numberBetween(1, 10),
-            'episodes' => random_int(1, $totalEpisodes),
+            'episode' => random_int(1, $totalEpisodes),
             'total_episodes' => $totalEpisodes
         ];
     }

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Genre extends Model
 {
-    use HasFactory;
-
     protected $guarded = [];
+
+    public $timestamps = false;
 
     public function animes(): BelongsToMany
     {
