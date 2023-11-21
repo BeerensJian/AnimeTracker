@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->string('image_url')->nullable();
             $table->unsignedInteger('rating')->nullable();
             $table->unsignedInteger('episode')->default(1);
             $table->unsignedInteger('total_episodes')->nullable();
