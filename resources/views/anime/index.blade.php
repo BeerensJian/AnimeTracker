@@ -1,4 +1,4 @@
-<x-app>
+<x-layout>
     <header>
         <h1 class="text-center py-4">Look for anime to add to your list</h1>
         <div class="d-flex justify-content-center mb-5">
@@ -22,4 +22,4 @@
             @endforeach
         </div>
     </div>
-</x-app>
+</x-layout>
