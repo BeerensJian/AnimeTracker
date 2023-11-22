@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Anime;
+use App\Models\ListItem;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Anime>
+ * @extends Factory<ListItem>
  */
-class AnimeFactory extends Factory
+class ListItemFactory extends Factory
 {
     /**
      * Define the model's default state.
