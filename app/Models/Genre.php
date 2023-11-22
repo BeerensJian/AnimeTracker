@@ -12,8 +12,8 @@ class Genre extends Model
 
     public $timestamps = false;
 
-    public function animes(): BelongsToMany
+    public function listItems(): BelongsToMany
     {
-        return $this->belongsToMany(Anime::class);
+        return $this->belongsToMany(ListItem::class);
     }
 }

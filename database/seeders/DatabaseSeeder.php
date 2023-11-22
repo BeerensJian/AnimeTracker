@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Anime;
+use App\Models\ListItem;
 use App\Models\Genre;
 use Illuminate\Database\Seeder;
 
@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
             Genre::create(['name' => $genre]);
         }
 
-        $anime = Anime::factory()->create();
-        $anime2 = Anime::factory()->create();
+        $anime = ListItem::factory()->create();
+        $anime2 = ListItem::factory()->create();
 
         $genres = Genre::all();
         $anime->genres()->attach($genres->random(2));
