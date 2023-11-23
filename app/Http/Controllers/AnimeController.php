@@ -24,4 +24,14 @@ class AnimeController extends Controller
             'pagination' => $response['pagination']
         ]);
     }
+
+    public function show(string $id)
+    {
+        $response = $this->APIService->findById($id);
+
+        return view('anime.show', [
+            'anime' => $response['data']
+        ]);
+
+    }
 }

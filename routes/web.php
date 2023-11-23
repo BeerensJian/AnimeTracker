@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AnimeController::class, 'index']);
+Route::get('/anime/{id}', [AnimeController::class, 'show']);
 
 Route::get('/list', [ListController::class, 'index']);

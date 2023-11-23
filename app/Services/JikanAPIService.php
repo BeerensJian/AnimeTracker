@@ -27,6 +27,15 @@ class JikanAPIService
     /**
      * @throws RequestException
      */
+    public function findById(int|string $id)
+    {
+        $response = Http::get(static::BASEURL . "/$id");
+        return $response->throw()->json();
+    }
+
+    /**
+     * @throws RequestException
+     */
     public function execute()
     {
         $response = Http::get($this->url);
