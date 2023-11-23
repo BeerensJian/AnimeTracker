@@ -9,15 +9,22 @@
     <div class="container-fluid">
         <div class="row">
             @foreach($animes as $anime)
-                <div class="col-3">
-                    <div class="card">
-                        <img src="{{ $anime['images']['jpg']['image_url'] }}" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $anime['title_english'] }}</h5>
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <a href="/anime/{{ $anime['mal_id'] }}">
+                            <img src="{{ $anime['images']['jpg']['image_url'] }}" alt="" class="card-img-top">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-reset text-decoration-none">{{ $anime['title_english'] }}</h5>
                             <p class="card-text cutoff-3">{{ $anime['synopsis'] }}</p>
-                            <a href="#" class="btn btn-primary">Add to list</a>
+                            <div class="mt-auto d-flex justify-content-between gap-2">
+                                <a href="#" class="btn btn-outline-light "><b>+</b> <span class="text-hidden">Add to List</span></a>
+                                <a href="/anime/{{ $anime['mal_id'] }}" class="btn btn-primary">More info</a>
+                            </div>
+
                         </div>
                     </div>
+
                 </div>
             @endforeach
         </div>

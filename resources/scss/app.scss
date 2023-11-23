@@ -12,3 +12,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.text-hidden {
+    display: none;
+}
+
+.btn:hover .text-hidden {
+    display: inline-block;
+}
+
+
