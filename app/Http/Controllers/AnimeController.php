@@ -27,7 +27,7 @@ class AnimeController extends Controller
 
     public function show(string $id)
     {
-        $response = $this->APIService->findById($id);
+        $response = $this->APIService->findFullById($id);
 
         return view('anime.show', [
             'anime' => $response['data']
