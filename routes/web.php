@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,6 @@ Route::get('/', [AnimeController::class, 'index']);
 Route::get('/anime/{id}', [AnimeController::class, 'show']);
 
 Route::get('/list', [ListController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::get('/register', [RegisterController::class, 'showRegisterForm']);
