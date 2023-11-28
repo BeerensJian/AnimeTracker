@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,7 @@ Route::get('/', [AnimeController::class, 'index']);
 Route::get('/anime/{id}', [AnimeController::class, 'show']);
 
 Route::get('/list', [ListController::class, 'index']);
+
+
+Route::get('/register', [RegisterController::class, 'showRegisterForm']);
+Route::post('/register', [RegisterController::class, 'register']);
