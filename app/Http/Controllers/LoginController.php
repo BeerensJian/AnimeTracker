@@ -19,9 +19,9 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt($credentials)) {
-            return redirect()->to('/list')->with('status', 'Welcome back!');
+            return redirect()->to('/list')->with('message', "Welcome back " . auth()->user()->name . "!");
         }
 
-        return redirect()->back()->withErrors(["password" => "Email and password combination doesnt match."]);
+        return redirect()->back()->withErrors(["password" => "Email and password combination doesn't match."]);
     }
 }

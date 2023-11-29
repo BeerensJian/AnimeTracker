@@ -26,6 +26,6 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect('/list')->with('status', "Your account has been created");
+        return redirect('/list')->with('message', "Your account has been created");
     }
 }
