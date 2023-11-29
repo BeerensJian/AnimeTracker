@@ -38,5 +38,4 @@
             </div>
         </div>
     </div>
-    <x-flash/>
 </x-layout>

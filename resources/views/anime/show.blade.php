@@ -1,5 +1,4 @@
 <x-layout>
-{{--    @dd($anime)--}}
     <div class="container d-flex gap-4  mt-4 p-4">
         <div>
             <img src="{{ $anime['images']['webp']['image_url'] }}" alt="">
