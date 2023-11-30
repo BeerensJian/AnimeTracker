@@ -12,6 +12,7 @@ class ListItem extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     protected $casts = [
         'status' => AnimeStatus::class
     ];

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enum\AnimeStatus;
 use App\Models\ListItem;
 use App\Services\JikanAPIService;
-use HttpException;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use function Laravel\Prompts\error;
 
 class ListController extends Controller
@@ -28,13 +29,30 @@ class ListController extends Controller
     {
         $mal_id = request()->query('id');
         $response = $this->APIService->findById($mal_id);
+
         return view('list.create', [
-            "anime" => $response['data']
+            "anime" => $response['data'],
+            "statuses" => AnimeStatus::cases()
         ]);
     }
 
     public function store()
     {
-        //logic to store entry in db
+        //validate the data
+        $attributes = request()->validate([
+            'title' => ['required', 'string'],
+            'description' => ['string'],
+            'rating' => ['required', 'integer', 'between:1,10'],
+            'episode' => ['required', 'integer', 'lt:total_episodes'],
+            'total_episodes' => ['required', 'integer', 'gt:0'],
+            'status' => ['required', Rule::in(AnimeStatus::cases())],
+            'mal_id' => []
+        ]);
+
+        //if validate ok, create an entry in db, linked to user
+        ListItem::create($attributes);
+        //redirect to index list if successfull.
+        return redirect()->to('/list')->with('message', 'Entry has been added to your list');
+
     }
 }
