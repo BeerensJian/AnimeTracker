@@ -24,6 +24,12 @@ class JikanAPIService
         return $this;
     }
 
+    public function genres()
+    {
+        $response = Http::get('https://api.jikan.moe/v4/genres/anime');
+        return $response->throw()->json();
+    }
+
     /**
      * @throws RequestException
      */

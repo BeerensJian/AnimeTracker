@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\ListItem;
 use App\Models\Genre;
+use App\Services\JikanAPIService;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,10 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $genres = ['Action', 'Adventure', 'Comedy', 'Drama', 'Slice of Life', 'Fantasy', 'Magic', 'Supernatural', 'Horror', 'Mystery', 'Psychological', 'Romance', 'Sci-Fi'];
-
-        foreach ($genres as $genre) {
-            Genre::create(['name' => $genre]);
+        $genres = (new JikanAPIService())->genres();
+        foreach ($genres['data'] as $genre) {
+            Genre::create(['name' => $genre['name']]);
         }
 
         $anime = ListItem::factory()->create();
@@ -26,15 +26,5 @@ class DatabaseSeeder extends Seeder
         $genres = Genre::all();
         $anime->genres()->attach($genres->random(2));
         $anime->genres()->attach($genres->random(3));
-
-
-
-
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }
