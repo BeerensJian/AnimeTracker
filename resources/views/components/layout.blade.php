@@ -17,9 +17,21 @@
             <div class="container-fluid">
                 <a class="navbar-brand">Anime Tracker</a>
                 <div class="d-flex align-items-center ">
-                    <a href="" class="pe-2">My Profile</a>
-                    <a href="">Register</a>
-                    <a href="">Login</a>
+                    <div>
+                        @auth
+                            <a href="/list" class="pe-2">My List</a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+                        @endauth
+                        @guest
+                            <a href="/register">Register</a>
+                            <a href="/login">Login</a>
+                        @endguest
+                    </div>
+
+
                 </div>
             </div>
         </nav>

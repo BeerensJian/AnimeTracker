@@ -24,4 +24,11 @@ class LoginController extends Controller
 
         return redirect()->back()->withErrors(["password" => "Email and password combination doesn't match."]);
     }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect('/login');
+    }
 }
