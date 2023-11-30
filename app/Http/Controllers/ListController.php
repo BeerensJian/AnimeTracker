@@ -26,7 +26,10 @@ class ListController extends Controller
 
     public function create()
     {
-        dd(\request());
-        return view('list.create');
+        $mal_id = request()->query('id');
+        $response = $this->APIService->findById($mal_id);
+        return view('list.create', [
+            "anime" => $response['data']
+        ]);
     }
 }
