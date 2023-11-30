@@ -23,4 +23,10 @@ class ListController extends Controller
             'animes' => $response
         ]);
     }
+
+    public function create()
+    {
+        dd(\request());
+        return view('list.create');
+    }
 }

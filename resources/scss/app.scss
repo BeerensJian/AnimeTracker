@@ -5,6 +5,12 @@
     height: 300px;
 }
 
+.image-preview {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
 .cutoff-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;

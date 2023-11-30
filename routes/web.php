@@ -21,6 +21,7 @@ Route::get('/', [AnimeController::class, 'index']);
 Route::get('/anime/{id}', [AnimeController::class, 'show']);
 
 Route::get('/list', [ListController::class, 'index']);
+Route::get('/list/create', [ListController::class, 'create']);
 
 
 Route::get('/register', [RegisterController::class, 'showRegisterForm']);
