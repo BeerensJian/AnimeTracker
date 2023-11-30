@@ -15,7 +15,7 @@
     <body>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand">Anime Tracker</a>
+                <a class="navbar-brand" href="/list">Anime Tracker</a>
                 <div class="d-flex align-items-center ">
                     <div>
                         @auth
