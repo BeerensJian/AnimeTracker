@@ -1,13 +1,13 @@
 <x-layout>
     <div class="row mt-5">
         <div class="col-md-3 h-100">
-            <img class="image-preview" src="{{ $anime['images']['webp']['large_image_url'] }}" alt="">
+            <img class="image-preview" src="{{ $anime['images']['webp']['large_image_url'] ?? '' }}" alt="">
         </div>
         <form action="/list/create" method="post" class="row col-md-9 align-content-start">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" id="title" name="title" value="{{ $anime['title'] }}" disabled class="form-control disabled">
+                <input type="text" id="title" name="title" value="{{ $anime['title'] ?? '' }}" disabled class="form-control disabled">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>

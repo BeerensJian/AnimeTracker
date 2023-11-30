@@ -32,4 +32,9 @@ class ListController extends Controller
             "anime" => $response['data']
         ]);
     }
+
+    public function store()
+    {
+        //logic to store entry in db
+    }
 }
