@@ -13,6 +13,22 @@ class LoginController extends Controller
 
     public function login()
     {
-        // login logic
+        $credentials = request()->validate([
+            "email" => ['email', 'required'],
+            "password" => ['string', 'required']
+        ]);
+
+        if (auth()->attempt($credentials)) {
+            return redirect()->to('/list')->with('message', "Welcome back " . auth()->user()->name . "!");
+        }
+
+        return redirect()->back()->withErrors(["password" => "Email and password combination doesn't match."]);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect('/login');
     }
 }

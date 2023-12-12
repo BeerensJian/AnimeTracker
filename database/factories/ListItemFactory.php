@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enum\AnimeStatus;
 use App\Models\ListItem;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,6 +25,7 @@ class ListItemFactory extends Factory
         return [
             'title' => fake()->title(),
             'description' => fake()->text(),
+            'status' => AnimeStatus::cases()[rand(0, 4)],
             'rating' => fake()->numberBetween(1, 10),
             'episode' => random_int(1, $totalEpisodes),
             'total_episodes' => $totalEpisodes

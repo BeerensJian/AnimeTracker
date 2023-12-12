@@ -17,10 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AnimeController::class, 'index']);
-Route::get('/anime/{id}', [AnimeController::class, 'show']);
+Route::middleware('auth')->group(function () {
+    Route::get('/', [AnimeController::class, 'index']);
+    Route::get('/anime/{id}', [AnimeController::class, 'show']);
 
-Route::get('/list', [ListController::class, 'index']);
+    Route::get('/list', [ListController::class, 'index']);
+    Route::get('/list/create', [ListController::class, 'create']);
+    Route::post('/list/create', [ListController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'showLoginForm']);
-Route::get('/register', [RegisterController::class, 'showRegisterForm']);
+    Route::post('/logout', [LoginController::class, 'logout']);
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::get('/register', [RegisterController::class, 'showRegisterForm']);
+    Route::post('/register', [RegisterController::class, 'register'])->name('register');
+    Route::post('/login', [LoginController::class, 'login']);
+});
+
+
+
+
+
+
+

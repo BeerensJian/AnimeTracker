@@ -1,5 +1,4 @@
 <x-layout>
-{{--    @dd($anime)--}}
     <div class="container d-flex gap-4  mt-4 p-4">
         <div>
             <img src="{{ $anime['images']['webp']['image_url'] }}" alt="">
@@ -15,7 +14,7 @@
         <div class="ps-4">
             <h2 class="mb-4">{{ $anime['title'] }}</h2>
             <p class="text-secondary-emphasis">{{ $anime['synopsis'] }}</p>
-            <x-relationships :relationships="$anime['relations']"/>
+           <x-relations :relations="$anime['relations']"/>
         </div>
     </div>
 </x-layout>

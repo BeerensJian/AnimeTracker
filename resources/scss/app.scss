@@ -5,6 +5,12 @@
     height: 300px;
 }
 
+.image-preview {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
 .cutoff-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -23,6 +29,17 @@
 
 .w-20 {
     width: 20%;
+}
+
+.notification {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: $primary;
+    width: fit-content;
+    padding: 4px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    border-radius: 4px;
 }
 
 

@@ -18,7 +18,7 @@
                             <h5 class="card-title text-reset text-decoration-none">{{ $anime['title_english'] }}</h5>
                             <p class="card-text cutoff-3">{{ $anime['synopsis'] }}</p>
                             <div class="mt-auto d-flex justify-content-between gap-2">
-                                <a href="#" class="btn btn-outline-light "><b>+</b> <span class="text-hidden">Add to List</span></a>
+                                <a href="/list/create?id={{ $anime['mal_id'] }}" class="btn btn-outline-light "><b>+</b> <span class="text-hidden">Add to List</span></a>
                                 <a href="/anime/{{ $anime['mal_id'] }}" class="btn btn-primary">More info</a>
                             </div>
 

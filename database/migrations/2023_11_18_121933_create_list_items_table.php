@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('list_items', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('mal_id')->nullable();
+            $table->string('status');
             $table->text('description');
             $table->string('image_url')->nullable();
             $table->unsignedInteger('rating')->nullable();
