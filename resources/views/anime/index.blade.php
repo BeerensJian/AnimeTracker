@@ -1,14 +1,14 @@
 <x-layout>
     <header>
         <h1 class="text-center py-4">Look for anime to add to your list</h1>
-        <div class="d-flex justify-content-center mb-5">
-            <input type="text" class="form-control w-50 me-3">
+        <form method="get" action="{{ url('/') }}" class="d-flex justify-content-center mb-5">
+            <input type="text" name="search" class="form-control w-50 me-3">
             <button type="submit" class="btn btn-primary">Search</button>
-        </div>
+        </form>
     </header>
     <div class="container-fluid">
         <div class="row">
-            @foreach($animes as $anime)
+            @forelse($animes as $anime)
                 <div class="col-12 col-md-6 col-lg-3 mb-4">
                     <div class="card h-100">
                         <a href="/anime/{{ $anime['mal_id'] }}">
@@ -26,7 +26,9 @@
                     </div>
 
                 </div>
-            @endforeach
+            @empty
+                <p class="text-center">No items found</p>
+            @endforelse
         </div>
     </div>
 </x-layout>

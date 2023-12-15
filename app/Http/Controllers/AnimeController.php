@@ -16,8 +16,12 @@ class AnimeController extends Controller
 
     public function index()
     {
-        $response = $this->APIService->search('jujutsu')->execute();
-
+        $searchQuery = request()->input('search');
+        if ($searchQuery) {
+            $response = $this->APIService->search($searchQuery)->execute();
+        } else {
+            $response = $this->APIService->status('airing')->execute();
+        }
 
         return view('anime.index', [
             'animes' => $response['data'],
