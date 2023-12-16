@@ -1,0 +1,15 @@
+.list-item-container {
+    display: flex;
+    align-items: center;
+    height: 100px;
+
+    .image {
+        width: 40%;
+        height: inherit;
+        flex-shrink: 0;
+        object-fit: cover;
+        margin-right: 30px;
+    }
+}
+
+

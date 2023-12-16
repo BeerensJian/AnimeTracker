@@ -6,6 +6,7 @@
         <form action="/list/create" method="post" class="row col-md-9 align-content-start">
             @csrf
             <input type="hidden" value="{{ $anime['mal_id'] }}" name="mal_id">
+            <input type="hidden" value="{{ $anime['images']['webp']['large_image_url'] }}" name="image_url">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" id="title" name="title" value="{{ $anime['title'] ?? '' }}" class="form-control" readonly>

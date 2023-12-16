@@ -19,10 +19,12 @@ class ListController extends Controller
 
     public function index()
     {
+        // get all list items from a user
+        //
         $response = $this->APIService->search('jujutsu')->execute();
 
         return view('list.index', [
-            'animes' => $response
+            'list_items' => Auth::user()->listItems
         ]);
     }
 
@@ -47,7 +49,8 @@ class ListController extends Controller
             'episode' => ['required', 'integer', 'lt:total_episodes'],
             'total_episodes' => ['required', 'integer', 'gt:0'],
             'status' => ['required', Rule::in(AnimeStatus::cases())],
-            'mal_id' => []
+            'mal_id' => [],
+            'image_url' => []
         ]);
 
         $attributes['user_id'] = Auth::id();
