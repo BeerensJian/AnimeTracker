@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\ListItem;
 use App\Models\Genre;
+use App\Models\User;
 use App\Services\JikanAPIService;
 use Illuminate\Database\Seeder;
 
@@ -20,8 +21,10 @@ class DatabaseSeeder extends Seeder
             Genre::create(['name' => $genre['name']]);
         }
 
-        $anime = ListItem::factory()->create();
-        $anime2 = ListItem::factory()->create();
+        $user = User::factory()->create();
+
+        $anime = ListItem::factory()->create(['user_id' => $user->id]);
+        $anime2 = ListItem::factory()->create(['user_id' => $user->id]);
 
         $genres = Genre::all();
         $anime->genres()->attach($genres->random(2));

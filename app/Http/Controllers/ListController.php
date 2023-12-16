@@ -6,6 +6,7 @@ use App\Enum\AnimeStatus;
 use App\Models\ListItem;
 use App\Services\JikanAPIService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use function Laravel\Prompts\error;
 
@@ -48,6 +49,8 @@ class ListController extends Controller
             'status' => ['required', Rule::in(AnimeStatus::cases())],
             'mal_id' => []
         ]);
+
+        $attributes['user_id'] = Auth::id();
 
         //if validate ok, create an entry in db, linked to user
         ListItem::create($attributes);
