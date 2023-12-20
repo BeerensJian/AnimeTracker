@@ -23,7 +23,8 @@ class ListItemFactory extends Factory
         $totalEpisodes = fake()->numberBetween(1, 24);
 
         return [
-            'title' => fake()->title(),
+            'title_en' => fake()->streetName(),
+            'title_jp' => fake()->streetName(),
             'description' => fake()->text(),
             'status' => AnimeStatus::cases()[rand(0, 4)],
             'rating' => fake()->numberBetween(1, 10),

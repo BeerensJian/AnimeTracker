@@ -19,13 +19,16 @@ class ListController extends Controller
 
     public function index()
     {
-        // get all list items from a user
-        //
-        $response = $this->APIService->search('jujutsu')->execute();
-
         return view('list.index', [
             'list_items' => Auth::user()->listItems
         ]);
+    }
+
+    public function show(ListItem $listItem)
+    {
+        //show List Item
+        // Be able to change status, rating, episodes etc
+        dd($listItem);
     }
 
     public function create()
@@ -43,9 +46,10 @@ class ListController extends Controller
     {
         //validate the data
         $attributes = request()->validate([
-            'title' => ['required', 'string'],
-            'description' => ['string'],
-            'rating' => ['required', 'integer', 'between:1,10'],
+            'title_en' => ['string', 'nullable'],
+            'title_jp' => ['required', 'string'],
+            'description' => ['string', 'nullable'],
+            'rating' => ['integer', 'between:0,10', 'nullable'],
             'episode' => ['required', 'integer', 'lt:total_episodes'],
             'total_episodes' => ['required', 'integer', 'gt:0'],
             'status' => ['required', Rule::in(AnimeStatus::cases())],

@@ -7,9 +7,10 @@
             @csrf
             <input type="hidden" value="{{ $anime['mal_id'] }}" name="mal_id">
             <input type="hidden" value="{{ $anime['images']['webp']['large_image_url'] }}" name="image_url">
+            <input type="hidden" value="{{$anime['title']}}" name="title_jp">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" id="title" name="title" value="{{ $anime['title'] ?? '' }}" class="form-control" readonly>
+                <input type="text" id="title" name="title_en" value="{{ $anime['title_english'] ?? $anime['title'] }}" class="form-control" readonly>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
@@ -18,7 +19,7 @@
             <div class="col-md-6">
                 <label for="rating" class="form-label">Rating</label>
                 <select class="form-select" id="rating" name="rating" aria-label="Default select example">
-                    <option value="0" selected>Select a rating</option>
+                    <option value="" selected>Select a rating</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -28,6 +29,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
+                    <option value="10">10</option>
                 </select>
             </div>
             <div class="col-md-3 mb-3">

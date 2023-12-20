@@ -18,6 +18,13 @@ class ListItem extends Model
         'status' => AnimeStatus::class
     ];
 
+    public function getPreferredTitleAttribute()
+    {
+        // TODO: handle this based on user preference
+
+        return $this->title_en ?: $this->title_jp;
+    }
+
     // whenever the rating value is set, make sure it's not above 10
     protected function rating(): Attribute
     {

@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/list', [ListController::class, 'index']);
     Route::get('/list/create', [ListController::class, 'create']);
     Route::post('/list/create', [ListController::class, 'store']);
+    Route::get('/list/{listItem}', [ListController::class, 'show']);
 
     Route::post('/logout', [LoginController::class, 'logout']);
 });

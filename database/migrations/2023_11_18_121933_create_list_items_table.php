@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('list_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->constrained()->cascadeOnDelete();
-            $table->string('title');
+            $table->string('title_en')->nullable();
+            $table->string('title_jp')->nullable();
             $table->string('mal_id')->nullable();
             $table->string('status');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('image_url')->nullable();
-            $table->unsignedInteger('rating')->nullable();
+            $table->unsignedInteger('rating')->nullable()->default(null);
             $table->unsignedInteger('episode')->default(1);
             $table->unsignedInteger('total_episodes')->nullable();
             $table->text('review')->nullable();
